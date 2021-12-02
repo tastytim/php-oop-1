@@ -4,7 +4,7 @@ class Movie {
 
     public $title,$year;
    
-    function __construct($title_value, $year_value){
+    function __construct($title_value="", $year_value=0){
            $this->title = $title_value;
            $this->year = $year_value;
     }
@@ -34,12 +34,17 @@ class Movie {
         return $this->title . " " . $this->year . "<br>";
     }
 
+    public function __toString()
+    {
+        return "{$this->title} {$this->year}" . "<br>";
+    }
+
 };
 
 
-$newMovie = new Movie("New Movie 1", 2021); 
+$newMovie = new Movie("New Movie 1", 2025); 
 $newMovie1 = new Movie("New Movie 2", 2022); 
-
+$newMovie3 = new Movie("", 2022); 
 
 // echo $newMovie->getTitle() . "<br>";
 // echo $newMovie->getYear() . "<br>";
@@ -49,7 +54,11 @@ $newMovie1 = new Movie("New Movie 2", 2022);
 // var_dump($newMovie);
 // var_dump($newMovie1);
 
-echo $newMovie->MovieAndYear();
-echo $newMovie1->MovieAndYear();
+// echo $newMovie->MovieAndYear();
+// echo $newMovie1->MovieAndYear();
+echo "{$newMovie}";
+echo "{$newMovie1}";
+echo "{$newMovie3}";
+var_dump($newMovie3);
 
 ?>
